@@ -87,7 +87,8 @@ class ApiController extends DataController implements CheckSumController
         'disableMic',
         'disablePrivateChat',
         'disablePublicChat',
-        'disableNotes',
+        'disableNotes', // This is the real name of the setting (see MDL-82389).
+        'disableNote', // This was the previous name (a typo), but we need to keep it here for backward compatibility.
         'lockedLayout',
         'hideUserList',
         'lockOnJoin',

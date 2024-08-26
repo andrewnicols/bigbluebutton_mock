@@ -619,12 +619,20 @@ class Meeting
         if (property_exists($this, $lockName)) {
             $this->$lockName = $value;
         }
+        // Keep the old behavior for disableNote.
+        if ($lockName === 'disableNote') {
+            $this->disableNotes = $value;
+        }
     }
 
     public function getLockSetting(string $lockName): bool {
         if (property_exists($this, $lockName)) {
             // If lockOnJoin not set to true, this is false for every lock.
             return $this->lockOnJoin && $this->$lockName;
+        }
+        // Keep the old behavior for disableNote.
+        if ($lockName === 'disableNote') {
+            return $this->disableNotes;
         }
         return false;
     }
